@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watson Assistant Chat Integration</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #1f1f1f, #3e3e3e);
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #00ffcc;
+      margin: 0;
+      padding-bottom: 20px;
+      animation: slideIn 1.5s ease-in-out;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #d1d1d1;
+      margin: 0;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      0% { transform: translateY(-50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+  <!-- Watson Assistant Chat Script -->
+  <script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "5eece6d4-0a14-4a71-9b8b-178c422b2301", // The ID of this integration.
+      region: "us-south", // The region your integration is hosted in.
+      serviceInstanceID: "ce12dd73-3d3d-4101-8df4-45472118e1e0", // The ID of your service instance.
+      onLoad: async (instance) => { await instance.render(); }
+    };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Watson Assistant Chat</h1>
+    <p>Interact with our chatbot for assistance and support.</p>
+  </div>
+</body>
+</html>
